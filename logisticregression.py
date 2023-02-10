@@ -42,11 +42,4 @@ class LogisticRegression:
 
     def predict(self, X):
         return self.predict_proba(X) >= 0.5
-
-data = sklearn.datasets.load_digits()
-X_train, X_test, y_train, y_test = train_test_split(data["data"], data["target"])
-X_train, X_test = X_train.T, X_test.T
-
-clf = OneVsRestClassifier(LogisticRegression())
-clf.fit(X_train, y_train).clfs
-print(classification_report(y_test, clf.predict(X_test)))
+        
