@@ -1,13 +1,9 @@
 import numpy as np
-import sklearn.datasets
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
-from multiclass import OneVsRestClassifier
 
 class LogisticRegression:
-    '''
+    """
     Implementation of Logistic Regression using the gradient descent algorithm.
-    '''
+    """
 
     def __init__(self, alpha=0.01, epochs=1000):
         self.alpha = alpha

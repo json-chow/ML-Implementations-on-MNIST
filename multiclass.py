@@ -2,9 +2,9 @@ import numpy as np
 from copy import deepcopy
 
 class OneVsRestClassifier:
-    '''
+    """
     Implementation of the one vs rest method for multiclass classification.
-    '''
+    """
 
     def __init__(self, clf):
         self.clf = clf
