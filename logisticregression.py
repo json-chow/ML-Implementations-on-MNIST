@@ -5,8 +5,8 @@ class LogisticRegression:
     Implementation of Logistic Regression using the gradient descent algorithm.
     """
 
-    def __init__(self, alpha=0.01, epochs=1000):
-        self.alpha = alpha
+    def __init__(self, lr=0.01, epochs=1000):
+        self.lr = lr
         self.epochs = epochs
 
     def __sigmoid(self, z):
@@ -14,23 +14,21 @@ class LogisticRegression:
 
     def fit(self, X, y):
         # w: nx1, X: nxm, b: 1xm, y: 1xm
-        w = np.random.randn(np.shape(X)[0], 1)
-        b = 0
+        self.w = np.random.randn(np.shape(X)[0], 1)
+        self.b = 0
         m = np.shape(X)[1]
 
         for epoch in range(self.epochs):
-            Z = w.T @ X + b
+            Z = self.w.T @ X + self.b
             A = self.__sigmoid(Z)
 
             dZ = A - y
             dw = (X @ dZ.T) / m
             db = np.sum(dZ) / m
 
-            w -= self.alpha * dw
-            b -= self.alpha * db
+            self.w -= self.lr * dw
+            self.b -= self.lr * db
         
-        self.w = w
-        self.b = b
         return self
     
     def predict_proba(self, X):

@@ -30,7 +30,7 @@ class KNeighborsClassifier:
                 count[j[2]] += 1
             probas.append(count / n_neighbors)
         return probas
-                             
+
 
     def predict(self, X):
         return np.argmax(self.predict_proba(X), axis=1)
